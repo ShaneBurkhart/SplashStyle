@@ -1,10 +1,11 @@
-<header class="site-header" role="banner">
-	<div class="big-container">
-        <a href="/" class="site-logo"><?php echo esc_attr(get_bloginfo('name')); ?></a>
-        <!--<nav role="navigation">				
-            <a>Twitter</a>
-            <a>Resources</a>
-            <a>Archive</a>-->
+<header id="site-header" role="banner">
+    <div class="container">
+        <nav class="pull-left">
+            <a href="/" id="site-logo">Splash</a>
         </nav>
-	</div>
+        <nav class="pull-right">
+                <a href="/signup">Get Started For Free</a>
+                <a href="/login">Login</a>
+        </nav>
+    </div>
 </header>
