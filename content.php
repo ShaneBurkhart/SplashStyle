@@ -8,36 +8,39 @@
                 )); ?>
             <?php if(!is_single()): ?></a><?php endif; ?>
         </div>
-    <?php endif; ?>	
-    <?php 
+    <?php endif; ?>
+    <?php
         if(is_single()):
             the_title('<h1 class="post-title">', '</h1>');
         else:
             the_title('<h2 class="post-title"><a href="' . esc_url(get_permalink()) . '">', '</a></h2>');
         endif;
     ?>
-    <p class="post-date"><?php the_date(); ?> by <?php the_author(); ?></p>	
-    <?php 
+    <p class="post-date"><?php the_date(); ?> by <?php the_author(); ?></p>
+    <?php
         if(is_single()):
-            the_content(); 
-        else: 
-            the_excerpt(); 
+            the_content();
+        else:
+            the_excerpt();
             echo '<p><a href="' . esc_url(get_permalink()) . '">Read More...</a></p>';
         endif;
     ?>
     <?php if(is_single()): ?>
         <div id="disqus_thread"></div>
-        <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES * * */
-        var disqus_shortname = 'shaneburkhart';
+        <script>
+            var disqus_config = function () {
+                this.page.url = 'usesplash.com';
+                this.page.identifier = '<?php get_the_ID(); ?>';
+            };
+            (function() {  // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
+                s.src = '//usesplash.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
     <?php endif; ?>
-</article>		
+</article>
